@@ -47,6 +47,7 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <body className={`${inter.variable} font-body antialiased`}>
+        <script src="/phoenix-tracking.js" async></script>
         <QueryProvider>
           <ThemeProvider
             attribute="class"

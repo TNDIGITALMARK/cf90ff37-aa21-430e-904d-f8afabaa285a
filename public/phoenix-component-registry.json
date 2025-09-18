@@ -1,0 +1,306 @@
+{
+  "projectId": "cf90ff37-aa21-430e-904d-f8afabaa285a",
+  "userId": "2luDlbgjvhO32uRKNns0OwSKemA3",
+  "version": "1.0.0",
+  "generatedAt": "2025-09-18T19:18:48.224Z",
+  "components": {
+    "phoenix-1758223128198": {
+      "phoenixId": "phoenix-1758223128198",
+      "componentName": "Error",
+      "filePath": "src/app/error.tsx",
+      "lineNumber": 5,
+      "columnNumber": 15,
+      "sourceCode": "export default function Error() {\n  return (\n    <div className=\"min-h-screen flex items-center justify-center\">\n      <div className=\"text-center\">\n        <h1 className=\"text-4xl font-bold mb-4\">500 - Server Error</h1>\n        <p className=\"text-xl mb-4\">Something went wrong. Please try again later.</p>\n        <a href=\"/\" className=\"text-blue-500 hover:text-blue-700 underline\">\n          Return to Home\n        </a>\n      </div>\n    </div>\n  );\n}",
+      "props": [],
+      "imports": [],
+      "modificationHints": [
+        "text-update",
+        "style-change"
+      ],
+      "astAnalysis": {
+        "componentType": "functional",
+        "complexity": "moderate"
+      }
+    },
+    "phoenix-1758223128199": {
+      "phoenixId": "phoenix-1758223128199",
+      "componentName": "GlobalError",
+      "filePath": "src/app/global-error.tsx",
+      "lineNumber": 5,
+      "columnNumber": 15,
+      "sourceCode": "export default function GlobalError({\n  error,\n  reset,\n}: {\n  error: Error & { digest?: string }\n  reset: () => void\n}) {\n  return (\n    <html>\n      <body>\n        <div style={{\n          minHeight: '100vh',\n          display: 'flex',\n          alignItems: 'center',\n          justifyContent: 'center',\n          padding: '2rem',\n          fontFamily: 'system-ui, sans-serif'\n        }}>\n          <div style={{ textAlign: 'center', maxWidth: '500px' }}>\n            <h1 style={{ fontSize: '2rem', marginBottom: '1rem', color: '#dc2626' }}>\n              Something went wrong!\n            </h1>\n            <p style={{ fontSize: '1.1rem', marginBottom: '2rem', color: '#6b7280' }}>\n              The application encountered an unexpected error. This is likely temporary.\n            </p>\n            <div style={{ display: 'flex', gap: '1rem', justifyContent: 'center', flexWrap: 'wrap' }}>\n              <button\n                onClick={reset}\n                style={{\n                  padding: '0.75rem 1.5rem',\n                  backgroundColor: '#3b82f6',\n                  color: 'white',\n                  border: 'none',\n                  borderRadius: '0.5rem',\n                  cursor: 'pointer',\n                  fontSize: '1rem'\n                }}\n              >\n                Try Again\n              </button>\n              <button\n                onClick={() => window.location.href = '/'}\n                style={{\n                  padding: '0.75rem 1.5rem',\n                  backgroundColor: '#6b7280',\n                  color: 'white',\n                  border: 'none',\n                  borderRadius: '0.5rem',\n                  cursor: 'pointer',\n                  fontSize: '1rem'\n                }}\n              >\n                Go Home\n              </button>\n            </div>\n            {process.env.NODE_ENV === 'development' && (\n              <details style={{ marginTop: '2rem', textAlign: 'left' }}>\n                <summary style={{ cursor: 'pointer', fontWeight: 'bold' }}>\n                  Error Details (Development Only)\n                </summary>\n                <pre style={{ \n                  marginTop: '1rem', \n                  padding: '1rem', \n                  backgroundColor: '#f3f4f6', \n                  borderRadius: '0.5rem',\n                  fontSize: '0.875rem',\n                  overflow: 'auto'\n                }}>\n                  {error.message}\n                  {error.stack && '\\n\\nStack trace:\\n' + error.stack}\n                </pre>\n              </details>\n            )}\n          </div>\n        </div>\n      </body>\n    </html>\n  )\n}",
+      "props": [
+        {
+          "name": "error",
+          "type": "unknown",
+          "required": false
+        },
+        {
+          "name": "reset",
+          "type": "unknown",
+          "required": false
+        }
+      ],
+      "imports": [],
+      "modificationHints": [
+        "text-update",
+        "style-change",
+        "careful-modification",
+        "test-thoroughly"
+      ],
+      "astAnalysis": {
+        "componentType": "functional",
+        "complexity": "complex"
+      }
+    },
+    "phoenix-1758223128200": {
+      "phoenixId": "phoenix-1758223128200",
+      "componentName": "RootLayout",
+      "filePath": "src/app/layout.tsx",
+      "lineNumber": 42,
+      "columnNumber": 15,
+      "sourceCode": "export default function RootLayout({\n  children,\n}: Readonly<{\n  children: React.ReactNode;\n}>) {\n  return (\n    <html lang=\"en\" suppressHydrationWarning>\n      <body className={`${inter.variable} font-body antialiased`}>\n        <QueryProvider>\n          <ThemeProvider\n            attribute=\"class\"\n            defaultTheme=\"light\"\n            enableSystem={false}\n            disableTransitionOnChange\n          >\n            <TooltipProvider>\n              <div className=\"flex min-h-screen flex-col\">\n                <Header />\n                <main className=\"flex-1\">\n                  {children}\n                </main>\n                <Footer />\n              </div>\n              <CartDrawer />\n              <PerformanceOptimizer />\n              <Toaster />\n              <Sonner />\n            </TooltipProvider>\n          </ThemeProvider>\n        </QueryProvider>\n      </body>\n    </html>\n  );\n}",
+      "props": [
+        {
+          "name": "children",
+          "type": "unknown",
+          "required": false
+        }
+      ],
+      "imports": [],
+      "modificationHints": [
+        "text-update",
+        "style-change",
+        "careful-modification",
+        "test-thoroughly"
+      ],
+      "astAnalysis": {
+        "componentType": "functional",
+        "complexity": "complex"
+      }
+    },
+    "phoenix-1758223128201": {
+      "phoenixId": "phoenix-1758223128201",
+      "componentName": "Loading",
+      "filePath": "src/app/loading.tsx",
+      "lineNumber": 1,
+      "columnNumber": 15,
+      "sourceCode": "export default function Loading() {\n  return (\n    <div className=\"min-h-screen flex items-center justify-center\">\n      <div className=\"text-center\">\n        <p className=\"text-xl\">Loading...</p>\n      </div>\n    </div>\n  );\n}",
+      "props": [],
+      "imports": [],
+      "modificationHints": [
+        "text-update",
+        "style-change"
+      ],
+      "astAnalysis": {
+        "componentType": "functional",
+        "complexity": "moderate"
+      }
+    },
+    "phoenix-1758223128202": {
+      "phoenixId": "phoenix-1758223128202",
+      "componentName": "NotFound",
+      "filePath": "src/app/not-found.tsx",
+      "lineNumber": 3,
+      "columnNumber": 15,
+      "sourceCode": "export default function NotFound() {\n  return (\n    <div className=\"min-h-screen flex items-center justify-center\">\n      <div className=\"text-center\">\n        <h1 className=\"text-4xl font-bold mb-4\">404 - Page Not Found</h1>\n        <p className=\"text-xl mb-4\">The page you are looking for does not exist.</p>\n        <a href=\"/\" className=\"text-blue-500 hover:text-blue-700 underline\">\n          Return to Home\n        </a>\n      </div>\n    </div>\n  );\n}",
+      "props": [],
+      "imports": [],
+      "modificationHints": [
+        "text-update",
+        "style-change"
+      ],
+      "astAnalysis": {
+        "componentType": "functional",
+        "complexity": "moderate"
+      }
+    },
+    "phoenix-1758223128203": {
+      "phoenixId": "phoenix-1758223128203",
+      "componentName": "HomePage",
+      "filePath": "src/app/page.tsx",
+      "lineNumber": 8,
+      "columnNumber": 15,
+      "sourceCode": "export default function HomePage() {\n  // Sample featured products data\n  const featuredProducts = [\n    {\n      id: '1',\n      name: 'THE ARCHER BLAZER',\n      price: 1200,\n      originalPrice: undefined,\n      images: ['/placeholder.svg'],\n      category: 'BLAZERS',\n      isNew: false,\n      isSale: false,\n      href: '/product/archer-blazer',\n    },\n    {\n      id: '2',\n      name: 'NOCTURE DRESS',\n      price: 1890,\n      originalPrice: undefined,\n      images: ['/placeholder.svg'],\n      category: 'DRESSES',\n      isNew: true,\n      isSale: false,\n      href: '/product/nocture-dress',\n    },\n    {\n      id: '3',\n      name: 'ECHO LEATHER BOOTS',\n      price: 1750,\n      originalPrice: undefined,\n      images: ['/placeholder.svg'],\n      category: 'FOOTWEAR',\n      isNew: false,\n      isSale: false,\n      href: '/product/echo-leather-boots',\n    },\n    {\n      id: '4',\n      name: 'STELLAR TOTE',\n      price: 1400,\n      originalPrice: undefined,\n      images: ['/placeholder.svg'],\n      category: 'ACCESSORIES',\n      isNew: false,\n      isSale: false,\n      href: '/product/stellar-tote',\n    },\n  ];\n\n  return (\n    <div className=\"min-h-screen\">\n      {/* Hero Section */}\n      <section className=\"relative min-h-[80vh] flex items-center justify-center bg-muted\">\n        <div \n          className=\"absolute inset-0 bg-gradient-to-r from-muted/80 to-muted/40\"\n          style={{\n            backgroundImage: \"url('/placeholder.svg')\",\n            backgroundSize: 'cover',\n            backgroundPosition: 'center',\n          }}\n        />\n        \n        <div className=\"relative z-10 text-center max-w-4xl mx-auto px-6\">\n          <h1 className=\"font-heading text-4xl md:text-6xl lg:text-7xl text-foreground mb-6\">\n            UNVEIL YOUR ESSENCE\n          </h1>\n          <p className=\"font-body text-lg md:text-xl text-muted-foreground mb-8 max-w-2xl mx-auto\">\n            Experience Curated Elegance\n          </p>\n          <Button \n            size=\"lg\" \n            className=\"bg-primary text-primary-foreground hover:bg-primary/90 px-8 py-3 text-sm tracking-wider font-medium\"\n            asChild\n          >\n            <Link href=\"/collections\">\n              SHOP THE COLLECTION\n            </Link>\n          </Button>\n        </div>\n      </section>\n\n      {/* Featured Collections */}\n      <section className=\"py-24 bg-background\">\n        <div className=\"container mx-auto px-6\">\n          <div className=\"text-center mb-16\">\n            <h2 className=\"font-heading text-3xl md:text-4xl text-foreground mb-4\">\n              FEATURED COLLECTIONS\n            </h2>\n            <p className=\"font-body text-muted-foreground max-w-2xl mx-auto\">\n              Discover our carefully curated selection of luxury pieces, each chosen for its exceptional craftsmanship and timeless appeal.\n            </p>\n          </div>\n\n          <div className=\"grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8\">\n            {featuredProducts.map((product) => (\n              <ProductCard\n                key={product.id}\n                {...product}\n              />\n            ))}\n          </div>\n\n          <div className=\"text-center mt-12\">\n            <Button \n              variant=\"outline\" \n              size=\"lg\" \n              className=\"border-primary text-primary hover:bg-primary hover:text-primary-foreground px-8\"\n              asChild\n            >\n              <Link href=\"/collections\">\n                VIEW ALL COLLECTIONS\n              </Link>\n            </Button>\n          </div>\n        </div>\n      </section>\n\n      {/* Designer Spotlight */}\n      <section className=\"py-24 bg-muted/30\">\n        <div className=\"container mx-auto px-6\">\n          <div className=\"max-w-6xl mx-auto\">\n            <div className=\"grid grid-cols-1 lg:grid-cols-2 gap-16 items-center\">\n              <div className=\"space-y-8\">\n                <div className=\"space-y-4\">\n                  <Badge className=\"bg-luxe-gold text-luxe-black font-medium w-fit\">\n                    DESIGNER SPOTLIGHT\n                  </Badge>\n                  <h2 className=\"font-heading text-3xl md:text-4xl text-foreground\">\n                    Craftsmanship Meets Innovation\n                  </h2>\n                  <p className=\"font-body text-muted-foreground text-lg leading-relaxed\">\n                    Each piece in our collection represents a collaboration with the world's most visionary designers. From emerging talents to established masters, every creation tells a story of artisanal excellence and contemporary sophistication.\n                  </p>\n                </div>\n                <div className=\"flex flex-col sm:flex-row gap-4\">\n                  <Button \n                    className=\"bg-primary text-primary-foreground hover:bg-primary/90\"\n                    asChild\n                  >\n                    <Link href=\"/designers\">\n                      MEET OUR DESIGNERS\n                    </Link>\n                  </Button>\n                  <Button \n                    variant=\"outline\" \n                    className=\"border-primary text-primary hover:bg-primary hover:text-primary-foreground\"\n                    asChild\n                  >\n                    <Link href=\"/about\">\n                      OUR STORY\n                    </Link>\n                  </Button>\n                </div>\n              </div>\n              <div className=\"relative\">\n                <div className=\"aspect-[4/5] relative overflow-hidden luxury-shadow-lg\">\n                  <div \n                    className=\"absolute inset-0 bg-muted\"\n                    style={{\n                      backgroundImage: \"url('/placeholder.svg')\",\n                      backgroundSize: 'cover',\n                      backgroundPosition: 'center',\n                    }}\n                  />\n                </div>\n              </div>\n            </div>\n          </div>\n        </div>\n      </section>\n\n      {/* Luxury Services */}\n      <section className=\"py-24 bg-background\">\n        <div className=\"container mx-auto px-6\">\n          <div className=\"text-center mb-16\">\n            <h2 className=\"font-heading text-3xl md:text-4xl text-foreground mb-4\">\n              EXCLUSIVE SERVICES\n            </h2>\n            <p className=\"font-body text-muted-foreground max-w-2xl mx-auto\">\n              Beyond exceptional fashion, we offer personalized services designed to elevate your luxury shopping experience.\n            </p>\n          </div>\n\n          <div className=\"grid grid-cols-1 md:grid-cols-3 gap-8\">\n            <div className=\"text-center space-y-4\">\n              <div className=\"w-16 h-16 bg-luxe-gold/10 rounded-full flex items-center justify-center mx-auto mb-6\">\n                <div className=\"w-8 h-8 bg-luxe-gold rounded-full\"></div>\n              </div>\n              <h3 className=\"font-heading text-xl text-foreground\">Personal Styling</h3>\n              <p className=\"font-body text-muted-foreground\">\n                One-on-one consultations with our expert stylists to curate pieces that perfectly complement your lifestyle and aesthetic.\n              </p>\n            </div>\n            <div className=\"text-center space-y-4\">\n              <div className=\"w-16 h-16 bg-luxe-gold/10 rounded-full flex items-center justify-center mx-auto mb-6\">\n                <div className=\"w-8 h-8 bg-luxe-gold rounded-full\"></div>\n              </div>\n              <h3 className=\"font-heading text-xl text-foreground\">Exclusive Access</h3>\n              <p className=\"font-body text-muted-foreground\">\n                First access to limited collections, designer collaborations, and invitation-only events in our luxury showrooms.\n              </p>\n            </div>\n            <div className=\"text-center space-y-4\">\n              <div className=\"w-16 h-16 bg-luxe-gold/10 rounded-full flex items-center justify-center mx-auto mb-6\">\n                <div className=\"w-8 h-8 bg-luxe-gold rounded-full\"></div>\n              </div>\n              <h3 className=\"font-heading text-xl text-foreground\">Concierge Service</h3>\n              <p className=\"font-body text-muted-foreground\">\n                White-glove delivery, custom alterations, and 24/7 client support to ensure every detail exceeds expectations.\n              </p>\n            </div>\n          </div>\n        </div>\n      </section>\n    </div>\n  );\n}",
+      "props": [],
+      "imports": [],
+      "modificationHints": [
+        "text-update",
+        "style-change",
+        "careful-modification",
+        "test-thoroughly"
+      ],
+      "astAnalysis": {
+        "componentType": "functional",
+        "complexity": "complex"
+      }
+    },
+    "phoenix-1758223128204": {
+      "phoenixId": "phoenix-1758223128204",
+      "componentName": "QueryProvider",
+      "filePath": "src/components/query-provider.tsx",
+      "lineNumber": 6,
+      "columnNumber": 7,
+      "sourceCode": "export function QueryProvider({ children }: { children: React.ReactNode }) {\n  const [queryClient] = useState(() => new QueryClient())\n\n  return (\n    <QueryClientProvider client={queryClient}>\n      {children}\n    </QueryClientProvider>\n  )\n}",
+      "props": [
+        {
+          "name": "children",
+          "type": "unknown",
+          "required": false
+        }
+      ],
+      "imports": [],
+      "modificationHints": [
+        "text-update",
+        "style-change",
+        "state-management"
+      ],
+      "astAnalysis": {
+        "componentType": "functional",
+        "hooks": [
+          "useState"
+        ],
+        "complexity": "moderate"
+      }
+    },
+    "phoenix-1758223128205": {
+      "phoenixId": "phoenix-1758223128205",
+      "componentName": "ThemeProvider",
+      "filePath": "src/components/theme-provider.tsx",
+      "lineNumber": 6,
+      "columnNumber": 7,
+      "sourceCode": "export function ThemeProvider({\n  children,\n  ...props\n}: React.ComponentProps<typeof NextThemesProvider>) {\n  return <NextThemesProvider {...props}>{children}</NextThemesProvider>\n}",
+      "props": [
+        {
+          "name": "children",
+          "type": "unknown",
+          "required": false
+        }
+      ],
+      "imports": [],
+      "modificationHints": [
+        "text-update",
+        "style-change"
+      ],
+      "astAnalysis": {
+        "componentType": "functional",
+        "complexity": "simple"
+      }
+    },
+    "phoenix-1758223128206": {
+      "phoenixId": "phoenix-1758223128206",
+      "componentName": "Badge",
+      "filePath": "src/components/ui/badge.tsx",
+      "lineNumber": 30,
+      "columnNumber": 0,
+      "sourceCode": "function Badge({ className, variant, ...props }: BadgeProps) {\n  return (\n    <div className={cn(badgeVariants({ variant }), className)} {...props} />\n  )\n}",
+      "props": [
+        {
+          "name": "className",
+          "type": "unknown",
+          "required": false
+        },
+        {
+          "name": "variant",
+          "type": "unknown",
+          "required": false
+        }
+      ],
+      "imports": [],
+      "modificationHints": [
+        "text-update",
+        "style-change"
+      ],
+      "astAnalysis": {
+        "componentType": "functional",
+        "complexity": "moderate"
+      }
+    },
+    "phoenix-1758223128207": {
+      "phoenixId": "phoenix-1758223128207",
+      "componentName": "Calendar",
+      "filePath": "src/components/ui/calendar.tsx",
+      "lineNumber": 10,
+      "columnNumber": 0,
+      "sourceCode": "function Calendar({\n  className,\n  classNames,\n  showOutsideDays = true,\n  ...props\n}: CalendarProps) {\n  return (\n    <DayPicker\n      showOutsideDays={showOutsideDays}\n      className={cn(\"p-3\", className)}\n      classNames={{\n        months: \"flex flex-col sm:flex-row space-y-4 sm:space-x-4 sm:space-y-0\",\n        month: \"space-y-4\",\n        caption: \"flex justify-center pt-1 relative items-center\",\n        caption_label: \"text-sm font-medium\",\n        nav: \"space-x-1 flex items-center\",\n        nav_button: cn(\n          buttonVariants({ variant: \"outline\" }),\n          \"h-7 w-7 bg-transparent p-0 opacity-50 hover:opacity-100\"\n        ),\n        nav_button_previous: \"absolute left-1\",\n        nav_button_next: \"absolute right-1\",\n        table: \"w-full border-collapse space-y-1\",\n        head_row: \"flex\",\n        head_cell:\n          \"text-muted-foreground rounded-md w-9 font-normal text-[0.8rem]\",\n        row: \"flex w-full mt-2\",\n        cell: \"h-9 w-9 text-center text-sm p-0 relative [&:has([aria-selected].day-range-end)]:rounded-r-md [&:has([aria-selected].day-outside)]:bg-accent/50 [&:has([aria-selected])]:bg-accent first:[&:has([aria-selected])]:rounded-l-md last:[&:has([aria-selected])]:rounded-r-md focus-within:relative focus-within:z-20\",\n        day: cn(\n          buttonVariants({ variant: \"ghost\" }),\n          \"h-9 w-9 p-0 font-normal aria-selected:opacity-100\"\n        ),\n        day_range_end: \"day-range-end\",\n        day_selected:\n          \"bg-primary text-primary-foreground hover:bg-primary hover:text-primary-foreground focus:bg-primary focus:text-primary-foreground\",\n        day_today: \"bg-accent text-accent-foreground\",\n        day_outside:\n          \"day-outside text-muted-foreground opacity-50 aria-selected:bg-accent/50 aria-selected:text-muted-foreground aria-selected:opacity-30\",\n        day_disabled: \"text-muted-foreground opacity-50\",\n        day_range_middle:\n          \"aria-selected:bg-accent aria-selected:text-accent-foreground\",\n        day_hidden: \"invisible\",\n        ...classNames,\n      }}\n      components={{\n        Chevron: (props) => props.orientation === 'left' ? <ChevronLeft className=\"h-4 w-4\" /> : <ChevronRight className=\"h-4 w-4\" />,\n      }}\n      {...props}\n    />\n  );\n}",
+      "props": [
+        {
+          "name": "className",
+          "type": "unknown",
+          "required": false
+        },
+        {
+          "name": "classNames",
+          "type": "unknown",
+          "required": false
+        },
+        {
+          "name": "showOutsideDays",
+          "type": "unknown",
+          "required": false
+        }
+      ],
+      "imports": [],
+      "modificationHints": [
+        "text-update",
+        "style-change",
+        "careful-modification",
+        "test-thoroughly"
+      ],
+      "astAnalysis": {
+        "componentType": "functional",
+        "complexity": "complex"
+      }
+    },
+    "phoenix-1758223128208": {
+      "phoenixId": "phoenix-1758223128208",
+      "componentName": "Skeleton",
+      "filePath": "src/components/ui/skeleton.tsx",
+      "lineNumber": 3,
+      "columnNumber": 0,
+      "sourceCode": "function Skeleton({\n  className,\n  ...props\n}: React.HTMLAttributes<HTMLDivElement>) {\n  return (\n    <div\n      className={cn(\"animate-pulse rounded-md bg-muted\", className)}\n      {...props}\n    />\n  )\n}",
+      "props": [
+        {
+          "name": "className",
+          "type": "unknown",
+          "required": false
+        }
+      ],
+      "imports": [],
+      "modificationHints": [
+        "text-update",
+        "style-change"
+      ],
+      "astAnalysis": {
+        "componentType": "functional",
+        "complexity": "simple"
+      }
+    },
+    "phoenix-1758223128209": {
+      "phoenixId": "phoenix-1758223128209",
+      "componentName": "Toaster",
+      "filePath": "src/components/ui/toaster.tsx",
+      "lineNumber": 13,
+      "columnNumber": 7,
+      "sourceCode": "export function Toaster() {\n  const { toasts } = useToast()\n\n  return (\n    <ToastProvider>\n      {toasts.map(function ({ id, title, description, action, ...props }) {\n        return (\n          <Toast key={id} {...props}>\n            <div className=\"grid gap-1\">\n              {title && <ToastTitle>{title}</ToastTitle>}\n              {description && (\n                <ToastDescription>{description}</ToastDescription>\n              )}\n            </div>\n            {action}\n            <ToastClose />\n          </Toast>\n        )\n      })}\n      <ToastViewport />\n    </ToastProvider>\n  )\n}",
+      "props": [],
+      "imports": [],
+      "modificationHints": [
+        "text-update",
+        "style-change"
+      ],
+      "astAnalysis": {
+        "componentType": "functional",
+        "hooks": [
+          "useToast"
+        ],
+        "complexity": "moderate"
+      }
+    }
+  },
+  "stats": {
+    "totalComponents": 12,
+    "totalFiles": 80,
+    "processingTimeMs": 454
+  }
+}
