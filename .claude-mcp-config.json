@@ -1,0 +1,15 @@
+{
+  "mcpServers": {
+    "banana-nano": {
+      "command": "node",
+      "args": [
+        "/Users/tylerthomlinson/Desktop/Synthcore/phoenix-2/mcp/servers/banana-nano-server.mjs"
+      ],
+      "env": {
+        "GEMINI_API_KEY": "AIzaSyDlpnMQc8PqVtwYqmovKetKnDyQshTOr7s",
+        "MCP_JOB_ID": "cf90ff37-aa21-430e-904d-f8afabaa285a",
+        "MCP_MODE": "claude-code"
+      }
+    }
+  }
+}

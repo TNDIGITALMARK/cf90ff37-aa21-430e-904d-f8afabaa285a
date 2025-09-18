@@ -1,86 +1,102 @@
 @import "tailwindcss";
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
 
-/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
-All colors MUST be HSL.
+/* Luxe Atelier Design System - Premium Designer Clothing E-commerce
+   Brand Colors: Rich Black (#010203), Cream (#F8F5F0), Gold (#D4AF37)
+   Typography: Didot for headings, Gotham-like (Inter) for body text
+   All colors MUST be HSL.
 */
 
 :root {
-  --background: 0 0% 100%;
-  --foreground: 222.2 84% 4.9%;
+  /* Luxe Atelier Brand Colors */
+  --background: 37 28% 95.7%; /* Cream (#F8F5F0) */
+  --foreground: 200 20% 1%; /* Rich Black (#010203) */
 
-  --card: 0 0% 100%;
-  --card-foreground: 222.2 84% 4.9%;
+  --card: 37 28% 95.7%; /* Cream */
+  --card-foreground: 200 20% 1%; /* Rich Black */
 
-  --popover: 0 0% 100%;
-  --popover-foreground: 222.2 84% 4.9%;
+  --popover: 37 28% 95.7%; /* Cream */
+  --popover-foreground: 200 20% 1%; /* Rich Black */
 
-  --primary: 222.2 47.4% 11.2%;
-  --primary-foreground: 210 40% 98%;
+  --primary: 200 20% 1%; /* Rich Black */
+  --primary-foreground: 37 28% 95.7%; /* Cream */
 
-  --secondary: 210 40% 96.1%;
-  --secondary-foreground: 222.2 47.4% 11.2%;
+  --secondary: 51 76% 52%; /* Gold (#D4AF37) */
+  --secondary-foreground: 200 20% 1%; /* Rich Black */
 
-  --muted: 210 40% 96.1%;
-  --muted-foreground: 215.4 16.3% 46.9%;
+  --muted: 37 15% 90%;
+  --muted-foreground: 200 10% 30%;
 
-  --accent: 210 40% 96.1%;
-  --accent-foreground: 222.2 47.4% 11.2%;
+  --accent: 51 76% 52%; /* Gold */
+  --accent-foreground: 200 20% 1%; /* Rich Black */
 
   --destructive: 0 84.2% 60.2%;
-  --destructive-foreground: 210 40% 98%;
+  --destructive-foreground: 37 28% 95.7%;
 
-  --border: 214.3 31.8% 91.4%;
-  --input: 214.3 31.8% 91.4%;
-  --ring: 222.2 84% 4.9%;
+  --border: 37 15% 85%;
+  --input: 37 15% 90%;
+  --ring: 51 76% 52%; /* Gold ring */
 
-  --radius: 0.5rem;
+  --radius: 0.375rem; /* More refined radius for luxury feel */
 
-  --sidebar-background: 0 0% 98%;
-  --sidebar-foreground: 240 5.3% 26.1%;
-  --sidebar-primary: 240 5.9% 10%;
-  --sidebar-primary-foreground: 0 0% 98%;
-  --sidebar-accent: 240 4.8% 95.9%;
-  --sidebar-accent-foreground: 240 5.9% 10%;
-  --sidebar-border: 220 13% 91%;
-  --sidebar-ring: 217.2 91.2% 59.8%;
+  /* Luxury-specific colors */
+  --luxe-black: 200 20% 1%; /* Rich Black */
+  --luxe-cream: 37 28% 95.7%; /* Cream */
+  --luxe-gold: 51 76% 52%; /* Gold */
+  
+  --sidebar-background: 200 20% 1%; /* Rich Black */
+  --sidebar-foreground: 37 28% 95.7%; /* Cream */
+  --sidebar-primary: 51 76% 52%; /* Gold */
+  --sidebar-primary-foreground: 200 20% 1%; /* Rich Black */
+  --sidebar-accent: 200 15% 10%;
+  --sidebar-accent-foreground: 37 28% 95.7%;
+  --sidebar-border: 200 15% 15%;
+  --sidebar-ring: 51 76% 52%; /* Gold */
 }
 
 .dark {
-  --background: 222.2 84% 4.9%;
-  --foreground: 210 40% 98%;
+  /* Luxe Atelier Dark Theme - Sophisticated Black & Gold */
+  --background: 200 20% 1%; /* Rich Black */
+  --foreground: 37 28% 95.7%; /* Cream */
 
-  --card: 222.2 84% 4.9%;
-  --card-foreground: 210 40% 98%;
+  --card: 200 15% 5%; /* Darker black for cards */
+  --card-foreground: 37 28% 95.7%; /* Cream */
 
-  --popover: 222.2 84% 4.9%;
-  --popover-foreground: 210 40% 98%;
+  --popover: 200 15% 5%;
+  --popover-foreground: 37 28% 95.7%;
 
-  --primary: 210 40% 98%;
-  --primary-foreground: 222.2 47.4% 11.2%;
+  --primary: 37 28% 95.7%; /* Cream primary in dark */
+  --primary-foreground: 200 20% 1%; /* Rich Black */
 
-  --secondary: 217.2 32.6% 17.5%;
-  --secondary-foreground: 210 40% 98%;
+  --secondary: 51 76% 52%; /* Gold stays same */
+  --secondary-foreground: 200 20% 1%; /* Rich Black */
 
-  --muted: 217.2 32.6% 17.5%;
-  --muted-foreground: 215 20.2% 65.1%;
+  --muted: 200 15% 10%;
+  --muted-foreground: 37 20% 70%;
 
-  --accent: 217.2 32.6% 17.5%;
-  --accent-foreground: 210 40% 98%;
+  --accent: 51 76% 52%; /* Gold accent */
+  --accent-foreground: 200 20% 1%; /* Rich Black */
 
-  --destructive: 0 62.8% 30.6%;
-  --destructive-foreground: 210 40% 98%;
+  --destructive: 0 62.8% 50%;
+  --destructive-foreground: 37 28% 95.7%;
 
-  --border: 217.2 32.6% 17.5%;
-  --input: 217.2 32.6% 17.5%;
-  --ring: 212.7 26.8% 83.9%;
-  --sidebar-background: 240 5.9% 10%;
-  --sidebar-foreground: 240 4.8% 95.9%;
-  --sidebar-primary: 224.3 76.3% 48%;
-  --sidebar-primary-foreground: 0 0% 100%;
-  --sidebar-accent: 240 3.7% 15.9%;
-  --sidebar-accent-foreground: 240 4.8% 95.9%;
-  --sidebar-border: 240 3.7% 15.9%;
-  --sidebar-ring: 217.2 91.2% 59.8%;
+  --border: 200 15% 15%;
+  --input: 200 15% 10%;
+  --ring: 51 76% 52%; /* Gold ring */
+  
+  /* Luxury dark theme colors */
+  --luxe-black: 200 20% 1%;
+  --luxe-cream: 37 28% 95.7%;
+  --luxe-gold: 51 76% 52%;
+  
+  --sidebar-background: 200 20% 1%;
+  --sidebar-foreground: 37 28% 95.7%;
+  --sidebar-primary: 51 76% 52%;
+  --sidebar-primary-foreground: 200 20% 1%;
+  --sidebar-accent: 200 15% 8%;
+  --sidebar-accent-foreground: 37 28% 95.7%;
+  --sidebar-border: 200 15% 15%;
+  --sidebar-ring: 51 76% 52%;
 }
 
 @theme {
@@ -160,4 +176,70 @@ All colors MUST be HSL.
 body {
   background-color: hsl(var(--background));
   color: hsl(var(--foreground));
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  font-feature-settings: 'cv02', 'cv03', 'cv04', 'cv11';
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Luxury Typography System */
+.font-heading {
+  font-family: 'Times New Roman', 'Didot', serif;
+  font-weight: 400;
+  letter-spacing: -0.02em;
+  line-height: 1.2;
+}
+
+.font-body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  font-feature-settings: 'cv02', 'cv03', 'cv04', 'cv11';
+  letter-spacing: -0.01em;
+}
+
+/* Luxury UI Enhancements */
+.luxury-gradient {
+  background: linear-gradient(135deg, hsl(var(--luxe-cream)) 0%, hsl(var(--luxe-gold) / 0.1) 100%);
+}
+
+.luxury-shadow {
+  box-shadow: 
+    0 1px 3px 0 hsl(var(--luxe-black) / 0.1),
+    0 1px 2px -1px hsl(var(--luxe-black) / 0.1);
+}
+
+.luxury-shadow-lg {
+  box-shadow: 
+    0 10px 15px -3px hsl(var(--luxe-black) / 0.1),
+    0 4px 6px -4px hsl(var(--luxe-black) / 0.1);
+}
+
+/* Smooth transitions for luxury feel */
+* {
+  transition-property: color, background-color, border-color, text-decoration-color, fill, stroke;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 150ms;
+}
+
+/* Custom scrollbar for luxury aesthetic */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: hsl(var(--muted));
+}
+
+::-webkit-scrollbar-thumb {
+  background: hsl(var(--luxe-gold) / 0.6);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: hsl(var(--luxe-gold));
+}
+
+/* Focus styles for accessibility */
+*:focus-visible {
+  outline: 2px solid hsl(var(--luxe-gold));
+  outline-offset: 2px;
 }
